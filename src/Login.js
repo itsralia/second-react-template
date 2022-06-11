@@ -11,7 +11,7 @@ const Login = () => {
     const userRef = useRef();
     const errRef = useRef();
 
-    const [user, setUser] = useState('');
+    const [email, setEmail] = useState('');
     const [pwd, setPwd] = useState('');
     const [errMsg, setErrMsg] = useState('');
     const [success, setSuccess] = useState(false);
@@ -22,14 +22,14 @@ const Login = () => {
 
     useEffect(() => {
         setErrMsg('');
-    }, [user, pwd])
+    }, [email, pwd])
 
     const handleSubmit = async (e) => {
         e.preventDefault();
 
         try {
             const response = await axios.post(LOGIN_URL,
-                JSON.stringify({ user, pwd }),
+                JSON.stringify({ email, pwd }),
                 {
                     headers: { 'Content-Type': 'application/json' },
                     withCredentials: true
@@ -39,8 +39,8 @@ const Login = () => {
             //console.log(JSON.stringify(response));
             const accessToken = response?.data?.accessToken;
             const roles = response?.data?.roles;
-            setAuth({ user, pwd, roles, accessToken });
-            setUser('');
+            setAuth({ email, pwd, roles, accessToken });
+            setEmail('');
             setPwd('');
             setSuccess(true);
         } catch (err) {
@@ -82,8 +82,8 @@ const Login = () => {
                                         placeholder="Enter your email"
                                         ref={userRef}
                                         autoComplete="off"
-                                        onChange={(e) => setUser(e.target.value)}
-                                        value={user}
+                                        onChange={(e) => setEmail(e.target.value)}
+                                        value={email}
                                         required
                                     />
                                     <i class="uil uil-envelope icon"></i>
@@ -95,8 +95,8 @@ const Login = () => {
                                         class="password"
                                         ref={userRef}
                                         autoComplete="off"
-                                        onChange={(e) => setUser(e.target.value)}
-                                        value={user}
+                                        onChange={(e) => setPwd(e.target.value)}
+                                        value={pwd}
                                         required
                                     />
                                     <i class="uil uil-lock icon"></i>

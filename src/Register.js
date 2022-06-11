@@ -19,6 +19,10 @@ const Register = () => {
   const errRef = useRef();
 
   const [user, setUser] = useState("");
+  const [firstName, setFirstName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
   const [validName, setValidName] = useState(false);
   const [userFocus, setUserFocus] = useState(false);
 
@@ -118,8 +122,8 @@ const Register = () => {
                     placeholder="Enter your Name"
                     ref={userRef}
                     autoComplete="off"
-                    onChange={(e) => setUser(e.target.value)}
-                    value={user}
+                    onChange={(e) => setFirstName(e.target.value)}
+                    value={firstName}
                     name="firstName"
                     required
                   />
@@ -132,8 +136,8 @@ const Register = () => {
                     placeholder="Enter your email"
                     ref={userRef}
                     autoComplete="off"
-                    onChange={(e) => setUser(e.target.value)}
-                    value={user}
+                    onChange={(e) => setEmail(e.target.value)}
+                    value={email}
                     name="email"
                     required
                   />
@@ -146,8 +150,8 @@ const Register = () => {
                     class="password"
                     ref={userRef}
                     autoComplete="off"
-                    onChange={(e) => setUser(e.target.value)}
-                    value={user}
+                    onChange={(e) => setPassword(e.target.value)}
+                    value={password}
                     required
                   />
                   <i class="uil uil-lock icon"></i>
@@ -159,8 +163,8 @@ const Register = () => {
                     class="password"
                     ref={userRef}
                     autoComplete="off"
-                    onChange={(e) => setUser(e.target.value)}
-                    value={user}
+                    onChange={(e) => setConfirmPassword(e.target.value)}
+                    value={confirmPassword}
                     required
                   />
                   <i class="uil uil-lock icon"></i>
